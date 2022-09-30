@@ -3,8 +3,8 @@
 
 {% block content %}
   {% call cards.render("Meus Anúncios", "users-ads container") %}
-  <a href="/products?_method=OrderASC">Ordem crescente </a>
-   <a href="/products?_method=OrderDESC">Ordem decrescente </a>
+  <a href="/users/ads">Ordem crescente </a>
+   <a href="/users/ads">Ordem decrescente </a>
   <div class="items">
     {% for product in products %}
       <div class="item">

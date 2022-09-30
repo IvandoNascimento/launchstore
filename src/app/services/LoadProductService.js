@@ -58,6 +58,28 @@ const LoadService = {
       console.error(error);
     }
   },
+  async productsAsc(){
+    try {
+      const f = 'name'
+      const products = await Product.orderASC($f);
+      const productsPromise = products.map(format);
+      
+      return Promise.all(productsPromise);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+  async productsDesc(){
+    try {
+      const f = 'name'
+      const products = await Product.orderDes($f);
+      const productsPromise = products.map(format);
+      
+      return Promise.all(productsPromise);
+    } catch (err) {
+      console.error(err);
+    }
+  },
   format
 };
 

@@ -6,6 +6,7 @@ const Product = require('../models/Product');
 const LoadService = require('../services/LoadProductService');
 
 const { formatCpfCnpj, formatCep } = require('../../lib/utils');
+const { orderDes } = require('../models/User');
 
 module.exports = {
   registerForm(req, res) {
@@ -115,5 +116,16 @@ module.exports = {
     });
 
     return res.render('templates/user/ads', { products });
-  }
+  },
+  async orderAsc(req,res){
+    const products = await LoadService.productsAsc();
+    
+    return res.render('templates/user/ads', { products });
+    
+  },
+  async orderDes(req,res){
+    const products = await LoadService.productsDesc();
+    
+    return res.render('templates/user/ads', { products });
+  },
 };

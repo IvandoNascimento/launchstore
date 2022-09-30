@@ -90,15 +90,17 @@ const Base = {
   delete(id) {
     return db.query(`DELETE FROM ${this.table} WHERE id = $1`, [id]);
   },
-  orderASC(){
-    return db.query(`SELECT *
+  orderASC(filter){
+    const query = `SELECT *
     FROM ${this.table}
-    ORDER BY name ASC`)
+    ORDER BY ${filter} ASC`;
+    return db.query(query);
   },
-  orderDes(){
-    return db.query(`SELECT *
+  orderDes(filter){
+    const query = `SELECT *
     FROM ${this.table}
-    ORDER BY name DESC`)
+    ORDER BY ${filter} DESC`;
+    return db.query(query);
   },
 };
 
